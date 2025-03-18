@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the CC lab 8...'
+                sh 'make -C main' 
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Running the compiled program...'
+                sh './main/hello_exec' 
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploy step: Deployment can be scripted here'
+            }
+        }
+    }
+
+    post {
+        failure {
+            echo 'Pipeline failed. Please check the errors.'
+        }
+    }
+}
