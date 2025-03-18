@@ -5,7 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the CC lab 8...'
-                sh 'make -C main'  // Runs the Makefile in main folder
+                sh 'wrong-make-command' 
+
             }
         }
         stage('Test') {
